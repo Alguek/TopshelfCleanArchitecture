@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TopshelfCleanArchitecture.Domain.Entities.Base;
 
-namespace TopshelfCleanArchitecture.Application.Interfaces
+namespace TopshelfCleanArchitecture.Application.Interfaces.Repository.Base
 {
     public interface IRepository<TDomainModel> where TDomainModel : DomainModel
     {

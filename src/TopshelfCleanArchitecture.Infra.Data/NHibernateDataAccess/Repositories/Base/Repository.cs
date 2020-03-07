@@ -3,7 +3,7 @@ using NHibernate;
 using NHibernate.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TopshelfCleanArchitecture.Application.Interfaces;
+using TopshelfCleanArchitecture.Application.Interfaces.Repository.Base;
 using TopshelfCleanArchitecture.Domain.Entities.Base;
 using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.DataModels.Base;
 

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using TopshelfCleanArchitecture.Application.Interfaces.Repository.Base;
 using TopshelfCleanArchitecture.Domain.Entities;
 
 namespace TopshelfCleanArchitecture.Application.Interfaces.Repository
