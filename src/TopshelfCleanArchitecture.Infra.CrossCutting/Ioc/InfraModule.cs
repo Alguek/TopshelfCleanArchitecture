@@ -5,7 +5,7 @@ using TopshelfCleanArchitecture.Domain.Models.Configuration;
 using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess;
 using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Repositories.Base;
 
-namespace TopshelfCleanArchitecture.Infra.CrossCutting.Ioc
+namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
 {
     public class InfraModule : Module
     {

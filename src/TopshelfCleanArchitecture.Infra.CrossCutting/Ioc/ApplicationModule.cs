@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using TopshelfCleanArchitecture.Application.Interfaces.Job;
 
-namespace TopshelfCleanArchitecture.Infra.CrossCutting.Ioc
+namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
 {
     public class ApplicationModule : Module
     {

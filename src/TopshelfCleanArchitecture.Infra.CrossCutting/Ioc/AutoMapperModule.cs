@@ -3,7 +3,7 @@ using AutoMapper;
 using System;
 using System.Linq;
 
-namespace TopshelfCleanArchitecture.Infra.CrossCutting.Ioc
+namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
 {
     public class AutoMapperModule : Module
     {

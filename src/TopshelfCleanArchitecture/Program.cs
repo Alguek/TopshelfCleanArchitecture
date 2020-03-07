@@ -7,12 +7,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Topshelf;
-using TopshelfCleanArchitecture.Domain.Entities;
-using TopshelfCleanArchitecture.Domain.Entities.Base;
-using TopshelfCleanArchitecture.Infra.CrossCutting.Ioc;
+using TopshelfCleanArchitecture.Infra.CrossCutting.IoC;
 using TopshelfCleanArchitecture.Infra.CrossCutting.Topshelf.Autofac.Configuration;
-using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.DataModels;
-using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.DataModels.Base;
 
 namespace TopshelfCleanArchitecture
 {

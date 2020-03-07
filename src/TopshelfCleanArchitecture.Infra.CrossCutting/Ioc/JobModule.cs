@@ -7,7 +7,7 @@ using System;
 using System.Linq;
 using TopshelfCleanArchitecture.Application.Job.Base;
 
-namespace TopshelfCleanArchitecture.Infra.CrossCutting.Ioc
+namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
 {
     public class JobModule : Module
     {
