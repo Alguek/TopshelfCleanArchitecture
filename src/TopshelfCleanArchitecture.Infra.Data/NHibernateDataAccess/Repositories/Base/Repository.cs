@@ -1,4 +1,5 @@
-﻿using NHibernate;
+﻿using AutoMapper;
+using NHibernate;
 using NHibernate.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,37 +14,36 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Repositories
         where TDataModel : DataModel
     {
         protected readonly ISessionFactory _sessionFactory;
+        protected readonly IMapper _mapper;
 
-        public Repository(ISessionFactory sessionFactory)
+        public Repository(ISessionFactory sessionFactory, IMapper mapper)
         {
             _sessionFactory = sessionFactory;
-            //_mapper = mapper;
+            _mapper = mapper;
         }
 
         public async Task<TDomainModel> Inserir(TDomainModel domainModel)
         {
-            //var dataModel = _mapper.Map<TDataModel>(domainModel);
+            var dataModel = _mapper.Map<TDataModel>(domainModel);
 
-            //using (var session = _sessionFactory.OpenSession())
-            //{
-            //    await session.SaveAsync(dataModel);
-            //    await session.FlushAsync();
-            //    return domainModel;
-            //}
-            return null;
+            using (var session = _sessionFactory.OpenSession())
+            {
+                await session.SaveAsync(dataModel);
+                await session.FlushAsync();
+                return domainModel;
+            }
         }
 
         public async Task<TDomainModel> Alterar(TDomainModel domainModel)
         {
-            //var dataModel = _mapper.Map<TDataModel>(domainModel);
+            var dataModel = _mapper.Map<TDataModel>(domainModel);
 
-            //using (var session = _sessionFactory.OpenSession())
-            //{
-            //    await session.UpdateAsync(dataModel);
-            //    await session.FlushAsync();
-            //    return domainModel;
-            //}
-            return null;
+            using (var session = _sessionFactory.OpenSession())
+            {
+                await session.UpdateAsync(dataModel);
+                await session.FlushAsync();
+                return domainModel;
+            }
         }
 
         public async Task Excluir(int id)
@@ -60,8 +60,8 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Repositories
             using (var session = _sessionFactory.OpenSession())
             {
                 var dataModel = await session.GetAsync<TDataModel>(id);
-                return null;
-                //return _mapper.Map<TDomainModel>(dataModel);
+                var domainModel = _mapper.Map<TDomainModel>(dataModel);
+                return domainModel;
             }
         }
 
@@ -70,8 +70,7 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Repositories
             using (var session = _sessionFactory.OpenSession())
             {
                 var lista = await session.Query<TDataModel>().ToListAsync();
-                return null;
-                //return _mapper.Map<IEnumerable<TDomainModel>>(lista);
+                return _mapper.Map<IEnumerable<TDomainModel>>(lista);
             }
         }
     }

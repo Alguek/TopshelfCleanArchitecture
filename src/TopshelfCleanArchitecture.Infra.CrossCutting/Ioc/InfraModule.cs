@@ -1,10 +1,8 @@
 ﻿using Autofac;
 using Microsoft.Extensions.Configuration;
-using System.Linq;
 using TopshelfCleanArchitecture.Domain.Enum;
 using TopshelfCleanArchitecture.Domain.Models.Configuration;
 using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess;
-using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.DataModels;
 using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Repositories.Base;
 
 namespace TopshelfCleanArchitecture.Infra.CrossCutting.Ioc
@@ -36,11 +34,6 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.Ioc
                         c.SetProperty("connection.driver_class", "NHibernate.Driver.OracleManagedDataClientDriver");
                 });
             });
-
-            using(var session = sessionFactory.OpenSession())
-            {
-                var teste = session.Query<ProductData>().ToList();
-            }
 
             builder.Register(f => sessionFactory).SingleInstance();
         }

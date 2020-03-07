@@ -12,6 +12,8 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Mappings
         {
             Table("Product");
             Id(i => i.Id, "Id");
+            Map(s => s.Name, "Name");
+            Map(s => s.Price, "Price");
         }
     }
 }

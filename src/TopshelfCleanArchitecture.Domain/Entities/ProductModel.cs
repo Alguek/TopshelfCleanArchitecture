@@ -7,5 +7,10 @@ namespace TopshelfCleanArchitecture.Domain.Entities
 {
     public class ProductModel : DomainModel
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public float Price { get; set; }
     }
 }

@@ -18,8 +18,7 @@ namespace TopshelfCleanArchitecture.Application.Job
 
         public async override Task ExecutarAsync()
         {
-            await _productRepository.ObterPorId(1);
-            throw new NotImplementedException();
+            var test = await _productRepository.ObterLista();
         }
     }
 }
