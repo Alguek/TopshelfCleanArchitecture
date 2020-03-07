@@ -28,7 +28,7 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.Ioc
 
             var types = AppDomain.CurrentDomain.GetAssemblies()
                .SelectMany(s => s.GetTypes())
-               .Where(p => typeof(JobBase).IsAssignableFrom(p) && p.FullName != "Quartz.IJob" && p.FullName != "TopshelfCleanArchitecture.Application.Job.Base.JobBase");
+               .Where(p => typeof(JobBase).IsAssignableFrom(p) && p.FullName != "Quartz.IJob" && !p.FullName.Contains("Application.Job.Base.JobBase"));
 
             foreach (var type in types)
             {
