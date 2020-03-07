@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="5.1.0" />
     <PackageReference Include="Quartz" Version="3.0.7" />
   </ItemGroup>
 

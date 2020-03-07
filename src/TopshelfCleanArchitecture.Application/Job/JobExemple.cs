@@ -1,24 +1,26 @@
-﻿using Quartz;
-using System;
+﻿using MediatR;
+using Quartz;
 using System.Threading.Tasks;
 using TopshelfCleanArchitecture.Application.Interfaces;
 using TopshelfCleanArchitecture.Application.Interfaces.Repository;
 using TopshelfCleanArchitecture.Application.Job.Base;
+using TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts;
 
 namespace TopshelfCleanArchitecture.Application.Job
 {
     [DisallowConcurrentExecution]
     public class JobExemple : JobBase
     {
-        private readonly IProductRepository _productRepository;
-        public JobExemple(string jobId, ILoggerFile loggerFile, IProductRepository productRepository) : base(jobId, loggerFile)
+        private readonly IMediator _mediator;
+
+        public JobExemple(string jobId, ILoggerFile loggerFile,  IMediator mediator) : base(jobId, loggerFile)
         {
-            _productRepository = productRepository;
+            _mediator = mediator;
         }
 
         public async override Task ExecutarAsync()
         {
-            var test = await _productRepository.ObterLista();
+            var testMediator = await _mediator.Send(new ReturnListOfProdutsCommand());
         }
     }
 }

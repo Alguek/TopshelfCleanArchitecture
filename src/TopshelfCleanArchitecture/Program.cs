@@ -1,12 +1,14 @@
 ﻿using Autofac;
-using AutoMapper;
+using MediatR;
+using MediatR.Extensions.Autofac.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Serilog;
 using System;
 using System.IO;
-using System.Linq;
-using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 using Topshelf;
+using TopshelfCleanArchitecture.Application.UseCase.Base;
 using TopshelfCleanArchitecture.Infra.CrossCutting.IoC;
 using TopshelfCleanArchitecture.Infra.CrossCutting.Topshelf.Autofac.Configuration;
 
@@ -47,11 +49,13 @@ namespace TopshelfCleanArchitecture
             builder.RegisterModule(new InfraModule(_configurationRoot));
             builder.RegisterModule(new ApplicationModule());
             builder.RegisterModule(new AutoMapperModule());
+            builder.AddMediatR(typeof(MediatRBase).Assembly);
 
             ConfigureSerilog(builder);
-            //RegisterMaps(builder);
-
+        
             var container = builder.Build();
+
+            //var response = mediator.Send(new PingCommand()).Result;
             return container;
         }
 
@@ -63,37 +67,6 @@ namespace TopshelfCleanArchitecture
                     .ReadFrom.Configuration(_configurationRoot)
                     .CreateLogger();
             }).SingleInstance();
-        }
-
-        private static void RegisterMaps(ContainerBuilder builder)
-        {
-            var assemblyNames = Assembly.GetExecutingAssembly().GetReferencedAssemblies();
-            var assembliesTypes = assemblyNames
-                .SelectMany(an => Assembly.Load(an).GetTypes())
-                .Where(p => typeof(Profile).IsAssignableFrom(p) && p.IsPublic && !p.IsAbstract)
-                .Distinct();
-
-            var autoMapperProfiles = assembliesTypes
-                .Select(p => (Profile)Activator.CreateInstance(p)).ToList();
-
-            builder.Register((c, p) =>
-            {
-                return new MapperConfiguration(cfg =>
-                {
-                    cfg.ForAllMaps((map, expression) =>
-                    {
-                        foreach (var unmappedPropertyName in map.GetUnmappedPropertyNames())
-                            expression.ForMember(unmappedPropertyName,
-                                configurationExpression => configurationExpression.Ignore());
-                    });
-
-                    foreach (var profile in autoMapperProfiles)
-                    {
-                        cfg.AddProfile(profile);
-                    }
-
-                }).CreateMapper();
-            }).InstancePerLifetimeScope();
         }
     }
 }
