@@ -1,9 +1,6 @@
 ﻿using Autofac;
-using Autofac.Core.Lifetime;
 using Quartz;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using TopshelfCleanArchitecture.Application.Interfaces.Job;
 
 namespace TopshelfCleanArchitecture.Infra.CrossCutting

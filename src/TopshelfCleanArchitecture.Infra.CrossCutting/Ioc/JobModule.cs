@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Microsoft.Extensions.Configuration;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
@@ -10,7 +11,14 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.Ioc
 {
     public class JobModule : Module
     {
+        private readonly IConfiguration _configuration;
         private readonly string _cronExpression = "0/10 * * * * ?";
+
+        public JobModule(IConfiguration configuration)
+        {
+            _configuration = configuration;
+            _cronExpression = _configuration.GetSection("CronExpression").Value;
+        }
 
         protected override void Load(ContainerBuilder builder)
         {
@@ -24,11 +32,13 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.Ioc
 
             foreach (var type in types)
             {
-                builder.RegisterType(type).SingleInstance();
+                builder.RegisterType(type).WithParameter("jobId", type.Name).SingleInstance();
+
+                var cronExpression = _configuration.GetSection("Jobs:" + type.Name).Value;
 
                 builder.Register(c => new JobSchedule(
                    jobType: type,
-                   cronExpression: _cronExpression)).SingleInstance();
+                   cronExpression: cronExpression ?? _cronExpression)).SingleInstance();
             }
         }
     }

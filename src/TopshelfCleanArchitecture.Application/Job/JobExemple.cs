@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Quartz;
+using System;
 using System.Threading.Tasks;
 using TopshelfCleanArchitecture.Application.Interfaces;
 using TopshelfCleanArchitecture.Application.Job.Base;
 
 namespace TopshelfCleanArchitecture.Application.Job
 {
+    [DisallowConcurrentExecution]
     public class JobExemple : JobBase
     {
-        public JobExemple(ILoggerFile loggerFile)
+        public JobExemple(string jobId, ILoggerFile loggerFile) : base(jobId, loggerFile)
         {
-            loggerFile.Information("teste");
+
         }
 
         public override Task ExecutarAsync()

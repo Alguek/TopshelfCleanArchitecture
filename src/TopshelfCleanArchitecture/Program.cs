@@ -39,7 +39,7 @@ namespace TopshelfCleanArchitecture
         {
             var builder = new ContainerBuilder();
             builder.RegisterType<Startup>();
-            builder.RegisterModule(new JobModule());
+            builder.RegisterModule(new JobModule(_configurationRoot));
             builder.RegisterModule(new ApplicationModule());
 
             ConfigureSerilog(builder);
@@ -53,8 +53,8 @@ namespace TopshelfCleanArchitecture
             builder.Register<ILogger>((c, p) =>
             {
                 return new LoggerConfiguration()
-                .ReadFrom.Configuration(_configurationRoot)
-                .CreateLogger();
+                    .ReadFrom.Configuration(_configurationRoot)
+                    .CreateLogger();
             }).SingleInstance();
         }
     }
