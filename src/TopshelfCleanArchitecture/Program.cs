@@ -40,6 +40,7 @@ namespace TopshelfCleanArchitecture
             var builder = new ContainerBuilder();
             builder.RegisterType<Startup>();
             builder.RegisterModule(new JobModule(_configurationRoot));
+            builder.RegisterModule(new InfraModule(_configurationRoot));
             builder.RegisterModule(new ApplicationModule());
 
             ConfigureSerilog(builder);

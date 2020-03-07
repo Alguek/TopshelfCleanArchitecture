@@ -2,6 +2,7 @@
 using System;
 using System.Threading.Tasks;
 using TopshelfCleanArchitecture.Application.Interfaces;
+using TopshelfCleanArchitecture.Application.Interfaces.Repository;
 using TopshelfCleanArchitecture.Application.Job.Base;
 
 namespace TopshelfCleanArchitecture.Application.Job
@@ -9,13 +10,15 @@ namespace TopshelfCleanArchitecture.Application.Job
     [DisallowConcurrentExecution]
     public class JobExemple : JobBase
     {
-        public JobExemple(string jobId, ILoggerFile loggerFile) : base(jobId, loggerFile)
+        private readonly IProductRepository _productRepository;
+        public JobExemple(string jobId, ILoggerFile loggerFile, IProductRepository productRepository) : base(jobId, loggerFile)
         {
-
+            _productRepository = productRepository;
         }
 
-        public override Task ExecutarAsync()
+        public async override Task ExecutarAsync()
         {
+            await _productRepository.ObterPorId(1);
             throw new NotImplementedException();
         }
     }
