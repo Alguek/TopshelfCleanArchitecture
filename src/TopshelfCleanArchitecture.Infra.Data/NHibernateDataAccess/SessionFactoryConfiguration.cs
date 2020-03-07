@@ -7,7 +7,7 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess
 {
     public class SessionFactoryConfiguration
     {
-        public eDatabaseType DatabaseType { get; set; }
+        public EDatabaseType DatabaseType { get; set; }
 
         public string ConnectionString { get; set; }
 

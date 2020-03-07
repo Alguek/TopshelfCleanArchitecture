@@ -30,7 +30,7 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
                 a.ShowSql = true;
                 a.Configuration(c =>
                 {
-                    if (configuration.DatabaseType == eDatabaseType.oracle10 || (configuration.DatabaseType == eDatabaseType.oracle9))
+                    if (configuration.DatabaseType == EDatabaseType.oracle10 || (configuration.DatabaseType == EDatabaseType.oracle9))
                         c.SetProperty("connection.driver_class", "NHibernate.Driver.OracleManagedDataClientDriver");
                 });
             });

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TopshelfCleanArchitecture.Domain.Enum
 {
-    public enum eDatabaseType
+    public enum EDatabaseType
     {
         mssql_12,
         oracle10,

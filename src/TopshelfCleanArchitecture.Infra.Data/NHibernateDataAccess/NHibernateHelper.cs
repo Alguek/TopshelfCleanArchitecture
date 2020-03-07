@@ -83,15 +83,15 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess
             string dbVersion = null;
             switch (so.DatabaseType)
             {
-                case eDatabaseType.mssql_12:
+                case EDatabaseType.mssql_12:
                     dbType = "mssql";
                     dbVersion = "12";
                     break;
-                case eDatabaseType.oracle10:
+                case EDatabaseType.oracle10:
                     dbType = "oracle10";
                     dbVersion = "10";
                     break;
-                case eDatabaseType.oracle9:
+                case EDatabaseType.oracle9:
                     dbType = "oracle9";
                     dbVersion = "9";
                     break;
