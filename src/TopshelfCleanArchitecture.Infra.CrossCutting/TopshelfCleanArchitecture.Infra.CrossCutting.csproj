@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Topshelf" Version="4.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TopshelfCleanArchitecture.Infra.Data\TopshelfCleanArchitecture.Infra.Data.csproj" />
+    <ProjectReference Include="..\TopshelfCleanArchitecture.Infra.Resiliency\TopshelfCleanArchitecture.Infra.Resiliency.csproj" />
+  </ItemGroup>
+
+</Project>
