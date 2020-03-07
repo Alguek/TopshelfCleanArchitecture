@@ -22,10 +22,7 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.Topshelf.Autofac.Configur
 
         public AutofacHostBuilderConfigurator(ILifetimeScope lifetimeScope)
         {
-            if (lifetimeScope == null)
-                throw new ArgumentNullException("lifetimeScope");
-
-            _lifetimeScope = lifetimeScope;
+            _lifetimeScope = lifetimeScope ?? throw new ArgumentNullException("lifetimeScope");
         }
 
 

@@ -12,7 +12,7 @@ namespace TopshelfCleanArchitecture
     {
         private static IConfigurationRoot _configurationRoot;
 
-        static void Main(string[] args)
+        static void Main()
         {
             var configurationBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
