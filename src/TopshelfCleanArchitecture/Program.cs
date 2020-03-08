@@ -49,7 +49,8 @@ namespace TopshelfCleanArchitecture
             builder.RegisterModule(new InfraModule(_configurationRoot));
             builder.RegisterModule(new ApplicationModule());
             builder.RegisterModule(new AutoMapperModule());
-            builder.AddMediatR(typeof(MediatRBase).Assembly);
+            builder.RegisterModule(new MediatorModule());
+            //builder.AddMediatR(typeof(MediatRBase).Assembly);
 
             ConfigureSerilog(builder);
         

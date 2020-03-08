@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using MediatR;
 using TopshelfCleanArchitecture.Application.Interfaces.Job;
 
 namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC

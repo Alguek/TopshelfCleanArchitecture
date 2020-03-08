@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TopshelfCleanArchitecture.Application.UseCase.Base;
 
 namespace TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts
 {
-    public class ReturnListOfProdutsResponse
+    public class ReturnListOfProdutsResponse : ResponseBase
     {
-        public int Id { get; set; }
+        public List<ProductReturnListOfProdutsResponse> Produts { get; set; }
     }
 }

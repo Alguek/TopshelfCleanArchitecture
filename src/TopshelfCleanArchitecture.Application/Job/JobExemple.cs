@@ -13,14 +13,14 @@ namespace TopshelfCleanArchitecture.Application.Job
     {
         private readonly IMediator _mediator;
 
-        public JobExemple(string jobId, ILoggerFile loggerFile,  IMediator mediator) : base(jobId, loggerFile)
+        public JobExemple(string jobId, ILoggerFile loggerFile, IMediator mediator) : base(jobId, loggerFile)
         {
             _mediator = mediator;
         }
 
         public async override Task ExecutarAsync()
         {
-            var testMediator = await _mediator.Send(new ReturnListOfProdutsCommand());
+            var testMediator = await _mediator.Send(new ReturnListOfProdutsCommand(){ Id = 1 });
         }
     }
 }
