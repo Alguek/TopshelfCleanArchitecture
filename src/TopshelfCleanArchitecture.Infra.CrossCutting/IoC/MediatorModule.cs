@@ -18,7 +18,7 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
                 .AsImplementedInterfaces();
 
             builder.RegisterAssemblyTypes(
-                                  typeof(ReturnListOfProdutsRequest).GetTypeInfo().Assembly).
+                                  typeof(ResponseBase).GetTypeInfo().Assembly).
                                        AsClosedTypesOf(typeof(IRequestHandler<,>));
 
             builder.RegisterGeneric(typeof(LoggingBehavior<,>)).

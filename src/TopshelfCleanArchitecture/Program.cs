@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Microsoft.Extensions.Configuration;
 using Serilog;
+using System;
 using System.IO;
 using Topshelf;
 using TopshelfCleanArchitecture.Infra.CrossCutting.IoC;
@@ -14,9 +15,12 @@ namespace TopshelfCleanArchitecture
 
         static void Main()
         {
+            var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
             var configurationBuilder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{environmentName}.json", optional: true);
 
             var configurationRoot = configurationBuilder.Build();
             _configurationRoot = configurationRoot;
