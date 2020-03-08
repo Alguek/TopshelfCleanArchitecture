@@ -1,12 +1,11 @@
 ﻿using Autofac;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Topshelf.Builders;
 using Topshelf.Configurators;
 using Topshelf.HostConfigurators;
 
-namespace TopshelfCleanArchitecture.Infra.CrossCutting.Topshelf.Autofac.Configuration
+namespace TopshelfCleanArchitecture.Infra.CrossCutting.TopshelfAutofacConfiguration
 {
     public class AutofacHostBuilderConfigurator : HostBuilderConfigurator
     {

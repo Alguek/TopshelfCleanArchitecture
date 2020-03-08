@@ -1,7 +1,7 @@
 ﻿using Autofac;
 using Topshelf.ServiceConfigurators;
 
-namespace TopshelfCleanArchitecture.Infra.CrossCutting.Topshelf.Autofac.Configuration
+namespace TopshelfCleanArchitecture.Infra.CrossCutting.TopshelfAutofacConfiguration
 {
     public static class ServiceConfiguratorExtensions
     {

@@ -2,7 +2,6 @@
 using Quartz;
 using System.Threading.Tasks;
 using TopshelfCleanArchitecture.Application.Interfaces;
-using TopshelfCleanArchitecture.Application.Interfaces.Repository;
 using TopshelfCleanArchitecture.Application.Job.Base;
 using TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts;
 
@@ -20,7 +19,7 @@ namespace TopshelfCleanArchitecture.Application.Job
 
         public async override Task ExecutarAsync()
         {
-            var testMediator = await _mediator.Send(new ReturnListOfProdutsCommand(){ Id = 1 });
+            var testMediator = await _mediator.Send(new ReturnListOfProdutsRequest() { Id = 1 });
         }
     }
 }

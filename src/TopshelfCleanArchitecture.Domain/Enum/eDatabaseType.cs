@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TopshelfCleanArchitecture.Domain.Enum
+﻿namespace TopshelfCleanArchitecture.Domain.Enum
 {
     public enum EDatabaseType
     {

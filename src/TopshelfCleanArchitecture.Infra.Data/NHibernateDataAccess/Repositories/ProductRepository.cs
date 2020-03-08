@@ -7,11 +7,11 @@ using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Repositories.Bas
 
 namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Repositories
 {
-    public class ProductRepository : Repository<ProductModel,ProductData>, IProductRepository
+    public class ProductRepository : Repository<ProductModel, ProductData>, IProductRepository
     {
-        public ProductRepository(ISessionFactory sessionFactory, IMapper mapper) : base(sessionFactory, mapper) 
-		{ 
-		
-		}
+        public ProductRepository(ISessionFactory sessionFactory, IMapper mapper) : base(sessionFactory, mapper)
+        {
+
+        }
     }
 }

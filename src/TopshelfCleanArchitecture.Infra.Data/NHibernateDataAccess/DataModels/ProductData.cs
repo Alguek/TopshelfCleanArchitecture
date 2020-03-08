@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.DataModels.Base;
+﻿using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.DataModels.Base;
 
 namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.DataModels
 {

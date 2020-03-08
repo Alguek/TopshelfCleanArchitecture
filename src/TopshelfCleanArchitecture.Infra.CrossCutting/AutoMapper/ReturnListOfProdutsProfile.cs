@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts;
 using TopshelfCleanArchitecture.Domain.Entities;
 
@@ -11,9 +9,9 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.AutoMapper
     {
         public ReturnListOfProdutsProfile()
         {
-            CreateMap<ProductModel,ProductReturnListOfProdutsResponse>();
-                
-            CreateMap<List<ProductModel>,ReturnListOfProdutsResponse>()
+            CreateMap<ProductModel, ReturnListOfProdutsResponseProduct>();
+
+            CreateMap<List<ProductModel>, ReturnListOfProdutsResponse>()
                 .ForMember(s => s.Produts, m => m.MapFrom(x => x));
         }
     }

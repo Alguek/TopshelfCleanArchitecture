@@ -3,10 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts;
-using TopshelfCleanArchitecture.Domain.Entities;
 using TopshelfCleanArchitecture.Domain.Entities.Base;
-using TopshelfCleanArchitecture.Domain.Entities.Configuration;
 using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.DataModels.Base;
 
 namespace TopshelfCleanArchitecture.Infra.CrossCutting.AutoMapper

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TopshelfCleanArchitecture.Domain.Entities.Base;
+﻿using TopshelfCleanArchitecture.Domain.Entities.Base;
 
 namespace TopshelfCleanArchitecture.Domain.Entities
 {

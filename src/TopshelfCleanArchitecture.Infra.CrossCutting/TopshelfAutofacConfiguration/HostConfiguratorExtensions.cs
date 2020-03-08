@@ -1,12 +1,9 @@
 ﻿using Autofac;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Topshelf.HostConfigurators;
 
-namespace TopshelfCleanArchitecture.Infra.CrossCutting.Topshelf.Autofac.Configuration
+namespace TopshelfCleanArchitecture.Infra.CrossCutting.TopshelfAutofacConfiguration
 {
-   public static class HostConfiguratorExtensions
+    public static class HostConfiguratorExtensions
     {
         public static HostConfigurator UseAutofacContainer(this HostConfigurator configurator, ILifetimeScope lifetimeScope)
         {

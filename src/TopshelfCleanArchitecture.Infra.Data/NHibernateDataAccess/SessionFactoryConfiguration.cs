@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using TopshelfCleanArchitecture.Domain.Enum;
 
 namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess

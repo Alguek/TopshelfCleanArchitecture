@@ -3,10 +3,9 @@ using Serilog.Core;
 using Serilog.Events;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using TopshelfCleanArchitecture.Application.Interfaces;
 
-namespace TopshelfCleanArchitecture.Infra.CrossCutting
+namespace TopshelfCleanArchitecture.Infra.CrossCutting.Serilog
 {
     public class LoggerFile : ILoggerFile, ILogger
     {
@@ -204,7 +203,7 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting
 
         public void Information(string messageTemplate)
         {
-           _logger.Information(messageTemplate);
+            _logger.Information(messageTemplate);
         }
 
         public void Information<T>(string messageTemplate, T propertyValue)

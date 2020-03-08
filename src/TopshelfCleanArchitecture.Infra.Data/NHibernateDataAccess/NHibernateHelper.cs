@@ -64,7 +64,7 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess
 
             if (configuration != null)
                 fluentConfiguration.ExposeConfiguration(configuration);
-            
+
             ConfigureAssemblies(ref fluentConfiguration);
 
             try
@@ -85,7 +85,7 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess
             var so = new SessionFactoryConfiguration();
             Configuration(so);
             if (string.IsNullOrEmpty(so.ConnectionString))
-                throw new ArgumentNullException("String de conexão não pode ser null");            
+                throw new ArgumentNullException("String de conexão não pode ser null");
 
             return InitializeSessionFactory(so.DatabaseType, so.ConnectionString, so.ShowSql, so.Mappings, so.ActionConfiguration);
         }

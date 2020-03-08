@@ -1,6 +1,6 @@
 ﻿using Autofac;
-using MediatR;
 using TopshelfCleanArchitecture.Application.Interfaces.Job;
+using TopshelfCleanArchitecture.Infra.CrossCutting.AutofacHelper;
 
 namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
 {
@@ -12,9 +12,9 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
                .RegisterAssemblyTypes(typeof(LifetimeScopeApplication).Assembly)
                .AsImplementedInterfaces().InstancePerLifetimeScope();
 
-             builder
-               .RegisterAssemblyTypes(typeof(IQuartzHostedService).Assembly)
-               .AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder
+              .RegisterAssemblyTypes(typeof(IQuartzHostedService).Assembly)
+              .AsImplementedInterfaces().InstancePerLifetimeScope();
         }
     }
 }

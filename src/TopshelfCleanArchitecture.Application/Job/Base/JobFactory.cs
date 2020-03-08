@@ -1,8 +1,6 @@
 ﻿using Quartz;
 using Quartz.Spi;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using TopshelfCleanArchitecture.Application.Interfaces.Job;
 
 namespace TopshelfCleanArchitecture.Application.Job.Base

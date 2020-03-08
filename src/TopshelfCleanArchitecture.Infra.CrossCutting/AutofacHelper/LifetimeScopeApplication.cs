@@ -3,7 +3,7 @@ using Quartz;
 using System;
 using TopshelfCleanArchitecture.Application.Interfaces.Job;
 
-namespace TopshelfCleanArchitecture.Infra.CrossCutting
+namespace TopshelfCleanArchitecture.Infra.CrossCutting.AutofacHelper
 {
     public class LifetimeScopeApplication : ILifetimeScopeApplication
     {

@@ -1,16 +1,10 @@
 ﻿using Autofac;
-using MediatR;
-using MediatR.Extensions.Autofac.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Serilog;
-using System;
 using System.IO;
-using System.Threading;
-using System.Threading.Tasks;
 using Topshelf;
-using TopshelfCleanArchitecture.Application.UseCase.Base;
 using TopshelfCleanArchitecture.Infra.CrossCutting.IoC;
-using TopshelfCleanArchitecture.Infra.CrossCutting.Topshelf.Autofac.Configuration;
+using TopshelfCleanArchitecture.Infra.CrossCutting.TopshelfAutofacConfiguration;
 
 namespace TopshelfCleanArchitecture
 {
@@ -29,8 +23,8 @@ namespace TopshelfCleanArchitecture
 
             HostFactory.Run(c =>
             {
-                c.SetServiceName("TopshelfCleanArchitecture");
-                c.SetDisplayName("TopshelfCleanArchitecture");
+                c.SetServiceName(": TopshelfCleanArchitecture");
+                c.SetDisplayName(": TopshelfCleanArchitecture");
                 c.SetDescription(": A exemple of a service using Topshelf with Clean Architecture");
 
                 c.UseAutofacContainer(ConfigureContainer());
@@ -56,7 +50,7 @@ namespace TopshelfCleanArchitecture
             builder.RegisterModule(new MediatorModule());
 
             ConfigureSerilog(builder);
-        
+
             var container = builder.Build();
 
             return container;

@@ -1,7 +1,4 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.DataModels;
 
 namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Mappings
