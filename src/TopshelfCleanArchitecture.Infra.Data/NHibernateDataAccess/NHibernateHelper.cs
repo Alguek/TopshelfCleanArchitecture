@@ -1,6 +1,7 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
+using NHibernate.Cfg;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -17,16 +18,13 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess
                 foreach (var attribute in assembly.GetCustomAttributes(true))
                 {
                     if (attribute is HibernatePersistenceAttribute)
-                    {
-                        Assembly bgmAssembly = assembly;
-                        configuration.Mappings(m => m.FluentMappings.AddFromAssembly(bgmAssembly));
-                    }
+                        configuration.Mappings(m => m.FluentMappings.AddFromAssembly(assembly));
                 }
             }
         }
 
         private static ISessionFactory InitializeSessionFactory(EDatabaseType dbType, string connString, bool showSql, IList<Type> mappings,
-            Action<NHibernate.Cfg.Configuration> configuration)
+            Action<Configuration> configuration)
         {
             var fluentConfiguration = Fluently.Configure();
 
@@ -67,9 +65,19 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess
             if (configuration != null)
                 fluentConfiguration.ExposeConfiguration(configuration);
             
-            ConfigureAssemblies(ref fluentConfiguration);            
+            ConfigureAssemblies(ref fluentConfiguration);
 
-            return fluentConfiguration.BuildSessionFactory();
+            try
+            {
+                return fluentConfiguration.BuildSessionFactory();
+            }
+            catch (Exception e)
+            {
+                if (e.HResult == -2146233088)
+                    throw new SystemException(e.InnerException.Message);
+
+                throw new SystemException(e.Message);
+            }
         }
 
         public static ISessionFactory ConfigureSessionFactory(Action<SessionFactoryConfiguration> Configuration)

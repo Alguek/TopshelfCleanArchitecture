@@ -29,6 +29,10 @@ namespace TopshelfCleanArchitecture
 
             HostFactory.Run(c =>
             {
+                c.SetServiceName("TopshelfCleanArchitecture");
+                c.SetDisplayName("TopshelfCleanArchitecture");
+                c.SetDescription(": A exemple of a service using Topshelf with Clean Architecture");
+
                 c.UseAutofacContainer(ConfigureContainer());
 
                 c.Service<Startup>(s =>
