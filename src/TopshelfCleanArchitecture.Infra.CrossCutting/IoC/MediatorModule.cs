@@ -1,7 +1,6 @@
 ﻿using Autofac;
 using MediatR;
 using MediatR.Extensions.Autofac.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System.Reflection;
 using TopshelfCleanArchitecture.Application.UseCase.Base;
 using TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts;
@@ -13,18 +12,14 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.AddMediatR(typeof(MediatRBase).Assembly);
+            builder.AddMediatR(typeof(ResponseBase).Assembly);
 
             builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly)
                 .AsImplementedInterfaces();
 
-            // Register all the Command classes (they implement IAsyncRequestHandler)
-            // in assembly holding the Commands
             builder.RegisterAssemblyTypes(
                                   typeof(ReturnListOfProdutsCommand).GetTypeInfo().Assembly).
                                        AsClosedTypesOf(typeof(IRequestHandler<,>));
-
-            builder.RegisterType<ILogger>();
 
             builder.RegisterGeneric(typeof(LoggingBehavior<,>)).
                                                        As(typeof(IPipelineBehavior<,>));

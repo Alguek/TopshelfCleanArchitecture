@@ -54,13 +54,11 @@ namespace TopshelfCleanArchitecture
             builder.RegisterModule(new ApplicationModule());
             builder.RegisterModule(new AutoMapperModule());
             builder.RegisterModule(new MediatorModule());
-            //builder.AddMediatR(typeof(MediatRBase).Assembly);
 
             ConfigureSerilog(builder);
         
             var container = builder.Build();
 
-            //var response = mediator.Send(new PingCommand()).Result;
             return container;
         }
 

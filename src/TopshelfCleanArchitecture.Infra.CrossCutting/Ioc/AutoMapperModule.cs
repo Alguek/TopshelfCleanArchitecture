@@ -21,18 +21,10 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
             {
                 return new MapperConfiguration(cfg =>
                 {
-                    cfg.ForAllMaps((map, expression) =>
-                    {
-                        foreach (var unmappedPropertyName in map.GetUnmappedPropertyNames())
-                            expression.ForMember(unmappedPropertyName,
-                                configurationExpression => configurationExpression.Ignore());
-                    });
-
                     foreach (var profile in autoMapperProfiles)
                     {
                         cfg.AddProfile(profile);
                     }
-
                 }).CreateMapper();
             }).InstancePerLifetimeScope();
         }
