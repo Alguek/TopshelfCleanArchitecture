@@ -26,52 +26,42 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Repositories
         {
             var dataModel = _mapper.Map<TDataModel>(domainModel);
 
-            using (var session = _sessionFactory.OpenSession())
-            {
-                await session.SaveAsync(dataModel);
-                await session.FlushAsync();
-                return domainModel;
-            }
+            using var session = _sessionFactory.OpenSession();
+            await session.SaveAsync(dataModel);
+            await session.FlushAsync();
+            return domainModel;
         }
 
         public async Task<TDomainModel> Alterar(TDomainModel domainModel)
         {
             var dataModel = _mapper.Map<TDataModel>(domainModel);
 
-            using (var session = _sessionFactory.OpenSession())
-            {
-                await session.UpdateAsync(dataModel);
-                await session.FlushAsync();
-                return domainModel;
-            }
+            using var session = _sessionFactory.OpenSession();
+            await session.UpdateAsync(dataModel);
+            await session.FlushAsync();
+            return domainModel;
         }
 
         public async Task Excluir(int id)
         {
-            using (var session = _sessionFactory.OpenSession())
-            {
-                await session.DeleteAsync(await session.LoadAsync<TDataModel>(id));
-                await session.FlushAsync();
-            }
+            using var session = _sessionFactory.OpenSession();
+            await session.DeleteAsync(await session.LoadAsync<TDataModel>(id));
+            await session.FlushAsync();
         }
 
         public async Task<TDomainModel> ObterPorId(int id)
         {
-            using (var session = _sessionFactory.OpenSession())
-            {
-                var dataModel = await session.GetAsync<TDataModel>(id);
-                var domainModel = _mapper.Map<TDomainModel>(dataModel);
-                return domainModel;
-            }
+            using var session = _sessionFactory.OpenSession();
+            var dataModel = await session.GetAsync<TDataModel>(id);
+            var domainModel = _mapper.Map<TDomainModel>(dataModel);
+            return domainModel;
         }
 
         public async Task<IEnumerable<TDomainModel>> ObterLista()
         {
-            using (var session = _sessionFactory.OpenSession())
-            {
-                var lista = await session.Query<TDataModel>().ToListAsync();
-                return _mapper.Map<IEnumerable<TDomainModel>>(lista);
-            }
+            using var session = _sessionFactory.OpenSession();
+            var lista = await session.Query<TDataModel>().ToListAsync();
+            return _mapper.Map<IEnumerable<TDomainModel>>(lista);
         }
     }
 }
