@@ -29,9 +29,8 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
 
             if (failures.Any())
             {
-                var obj = (TResponse)Activator.CreateInstance(typeof(TResponse));
-                obj.Errors = failures;
-                return obj;
+                var error = (TResponse)new ResponseBase(failures);
+                return error;
             }
 
             var response = await next();

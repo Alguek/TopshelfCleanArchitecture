@@ -3,8 +3,12 @@ using TopshelfCleanArchitecture.Application.UseCase.Base;
 
 namespace TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts
 {
-    public class ReturnListOfProdutsResponse : ResponseBase
+    public class ReturnListOfProdutsResponse
     {
-        public List<ReturnListOfProdutsResponseProduct> Produts { get; set; }
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public float Price { get; set; }
     }
 }

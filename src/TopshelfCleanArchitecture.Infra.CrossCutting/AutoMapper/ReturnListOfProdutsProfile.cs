@@ -9,10 +9,10 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.AutoMapper
     {
         public ReturnListOfProdutsProfile()
         {
-            CreateMap<ProductModel, ReturnListOfProdutsResponseProduct>();
+            CreateMap<ProductModel, ReturnListOfProdutsResponse>();
 
-            CreateMap<List<ProductModel>, ReturnListOfProdutsResponse>()
-                .ForMember(s => s.Produts, m => m.MapFrom(x => x));
+            //CreateMap<List<ProductModel>, ReturnListOfProdutsResponse>()
+            //    .ForMember(s => s.Produts, m => m.MapFrom(x => x));
         }
     }
 }

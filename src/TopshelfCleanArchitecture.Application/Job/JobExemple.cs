@@ -19,7 +19,7 @@ namespace TopshelfCleanArchitecture.Application.Job
 
         public async override Task ExecutarAsync()
         {
-            var testMediator = await _mediator.Send(new ReturnListOfProdutsRequest() { Id = 1 });
+            var testMediator = await _mediator.Send(new ReturnListOfProdutsRequest() { Id = 1});
         }
     }
 }

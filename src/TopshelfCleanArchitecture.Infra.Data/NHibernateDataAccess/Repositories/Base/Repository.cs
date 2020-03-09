@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using NHibernate;
 using NHibernate.Linq;
+using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using TopshelfCleanArchitecture.Application.Interfaces.Repository.Base;
 using TopshelfCleanArchitecture.Domain.Entities.Base;
@@ -54,6 +57,14 @@ namespace TopshelfCleanArchitecture.Infra.Data.NHibernateDataAccess.Repositories
             using var session = _sessionFactory.OpenSession();
             var dataModel = await session.GetAsync<TDataModel>(id);
             var domainModel = _mapper.Map<TDomainModel>(dataModel);
+            return domainModel;
+        }
+
+        public async Task<IEnumerable<TDomainModel>> Obter(Expression<Func<TDataModel, bool>> predicate)
+        {
+            using var session = _sessionFactory.OpenSession();
+            var dataModel = await session.Query<TDataModel>().Where(predicate).ToListAsync();
+            var domainModel = _mapper.Map<IEnumerable<TDomainModel>>(dataModel);
             return domainModel;
         }
 
