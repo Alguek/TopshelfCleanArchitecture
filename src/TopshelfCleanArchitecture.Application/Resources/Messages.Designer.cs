@@ -70,11 +70,29 @@ namespace TopshelfCleanArchitecture.Application.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Result with erros: {@0}.
+        /// </summary>
+        internal static string FailResultUsecaseConsole {
+            get {
+                return ResourceManager.GetString("FailResultUsecaseConsole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successful result from usecase: {0}.
         /// </summary>
         internal static string OkResultUsecase {
             get {
                 return ResourceManager.GetString("OkResultUsecase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successful result from usecase: {@0}.
+        /// </summary>
+        internal static string OkResultUsecaseConsole {
+            get {
+                return ResourceManager.GetString("OkResultUsecaseConsole", resourceCulture);
             }
         }
     }

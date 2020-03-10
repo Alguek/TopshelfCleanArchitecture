@@ -120,7 +120,13 @@
   <data name="FailResultUsecase" xml:space="preserve">
     <value>Result with erros: {0}</value>
   </data>
+  <data name="FailResultUsecaseConsole" xml:space="preserve">
+    <value>Result with erros: {@0}</value>
+  </data>
   <data name="OkResultUsecase" xml:space="preserve">
     <value>Successful result from usecase: {0}</value>
+  </data>
+  <data name="OkResultUsecaseConsole" xml:space="preserve">
+    <value>Successful result from usecase: {@0}</value>
   </data>
 </root>

@@ -28,17 +28,17 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.Serilog
 
         public void Debug(string messageTemplate)
         {
-            throw new NotImplementedException();
+           _logger.Debug(messageTemplate);
         }
 
         public void Debug<T>(string messageTemplate, T propertyValue)
         {
-            throw new NotImplementedException();
+           _logger.Debug(messageTemplate, propertyValue);
         }
 
         public void Debug<T0, T1>(string messageTemplate, T0 propertyValue0, T1 propertyValue1)
         {
-            throw new NotImplementedException();
+            _logger.Debug(messageTemplate, propertyValue0, propertyValue1);
         }
 
         public void Debug<T0, T1, T2>(string messageTemplate, T0 propertyValue0, T1 propertyValue1, T2 propertyValue2)
@@ -208,17 +208,17 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.Serilog
 
         public void Information<T>(string messageTemplate, T propertyValue)
         {
-            throw new NotImplementedException();
+            _logger.Information(messageTemplate, propertyValue);
         }
 
         public void Information<T0, T1>(string messageTemplate, T0 propertyValue0, T1 propertyValue1)
         {
-            throw new NotImplementedException();
+            _logger.Information(messageTemplate, propertyValue0, propertyValue1);
         }
 
         public void Information<T0, T1, T2>(string messageTemplate, T0 propertyValue0, T1 propertyValue1, T2 propertyValue2)
         {
-            throw new NotImplementedException();
+            _logger.Information(messageTemplate, propertyValue0, propertyValue1, propertyValue2);
         }
 
         public void Information(string messageTemplate, params object[] propertyValues)
@@ -308,7 +308,7 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.Serilog
 
         public void Warning(string messageTemplate)
         {
-            throw new NotImplementedException();
+            _logger.Warning(messageTemplate);
         }
 
         public void Warning<T>(string messageTemplate, T propertyValue)

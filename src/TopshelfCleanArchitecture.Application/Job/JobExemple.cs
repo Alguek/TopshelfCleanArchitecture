@@ -25,11 +25,10 @@ namespace TopshelfCleanArchitecture.Application.Job
         {
             //The result is encapsulated on a Class (ResponseBase) that returns the result from the usecase or errors from de validation
             ResponseBase<List<ReturnListOfProdutsResponse>> resultWithoutError = await _mediator.Send(new ReturnListOfProdutsRequest() { Id = 1 });
-             _loggerFile.Information(string.Format(Messages.OkResultUsecase, JsonConvert.SerializeObject(resultWithoutError)));
+             _loggerFile.Information(Messages.OkResultUsecaseConsole, resultWithoutError);
 
             ResponseBase<List<ReturnListOfProdutsResponse>> resultWithError = await _mediator.Send(new ReturnListOfProdutsRequest() { Id = 0 });
-            _loggerFile.Information(string.Format(Messages.FailResultUsecase, JsonConvert.SerializeObject(resultWithError)));
-
+            _loggerFile.Information(Messages.FailResultUsecaseConsole, resultWithError);
         }
     }
 }

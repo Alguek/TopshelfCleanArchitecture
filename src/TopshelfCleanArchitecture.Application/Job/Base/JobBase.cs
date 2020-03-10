@@ -40,14 +40,14 @@ namespace TopshelfCleanArchitecture.Application.Job.Base
         protected void LogStart()
         {
             _stopwatch = new Stopwatch();
-            _stopwatch.Start();
-            _loggerFile.Information(string.Format("[INICIO] '{0}'", _jobId));
+            _stopwatch.Start(); 
+            _loggerFile.Information("[INICIO] '{0}'", _jobId);
         }
 
         protected void LogEnd()
         {
             _stopwatch.Stop();
-            _loggerFile.Information((string.Format("[FIM] '{0}' {1} ms de execução", _jobId, _stopwatch.ElapsedMilliseconds)));
+            _loggerFile.Information("[FIM] '{0}' {1} ms de execução", _jobId, _stopwatch.ElapsedMilliseconds);
         }
 
         public abstract Task ExecutarAsync();

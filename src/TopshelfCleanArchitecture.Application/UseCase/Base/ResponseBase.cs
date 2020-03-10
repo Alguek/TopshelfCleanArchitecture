@@ -15,11 +15,11 @@ namespace TopshelfCleanArchitecture.Application.UseCase.Base
 
     public class ResponseBase<T> : ResponseBase
     {
-        public ResponseBase(T response, IEnumerable<string> errors = null) : base(errors)
+        public ResponseBase(T result, IEnumerable<string> errors = null) : base(errors)
         {
-            Response = response;
+            Result = result;
         }
 
-        public T Response { get; }
+        public T Result { get; }
     }
 }

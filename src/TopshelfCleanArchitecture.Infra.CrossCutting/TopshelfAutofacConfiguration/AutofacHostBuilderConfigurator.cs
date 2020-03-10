@@ -7,6 +7,10 @@ using Topshelf.HostConfigurators;
 
 namespace TopshelfCleanArchitecture.Infra.CrossCutting.TopshelfAutofacConfiguration
 {
+    /// <summary>
+    /// All the credits for alexandrnikitin
+    /// https://github.com/alexandrnikitin/Topshelf.Autofac
+    /// </summary>
     public class AutofacHostBuilderConfigurator : HostBuilderConfigurator
     {
         private static ILifetimeScope _lifetimeScope;
