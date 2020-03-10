@@ -9,7 +9,8 @@ using TopshelfCleanArchitecture.Application.UseCase.Base;
 
 namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
 {
-    public class ValidatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TResponse : ResponseBase
+    public class ValidatorBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> 
+        where TResponse : ResponseBase
     {
         private readonly IValidator<TRequest>[] _validators;
 
@@ -29,8 +30,11 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
 
             if (failures.Any())
             {
-                var error = (TResponse)new ResponseBase(failures);
-                return error;
+                var responseType = typeof(TResponse);
+                var resultType = responseType.GetGenericArguments()[0];
+                var genericTypeClass = typeof(ResponseBase<>).MakeGenericType(resultType);
+                var errors = Activator.CreateInstance(genericTypeClass, failures) as TResponse;
+                return errors;
             }
 
             var response = await next();
