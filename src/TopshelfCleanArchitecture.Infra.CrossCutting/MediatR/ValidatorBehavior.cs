@@ -33,7 +33,7 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
                 var responseType = typeof(TResponse);
                 var resultType = responseType.GetGenericArguments()[0];
                 var genericTypeClass = typeof(ResponseBase<>).MakeGenericType(resultType);
-                var errors = Activator.CreateInstance(genericTypeClass, failures) as TResponse;
+                var errors = Activator.CreateInstance(genericTypeClass, null, failures) as TResponse;
                 return errors;
             }
 

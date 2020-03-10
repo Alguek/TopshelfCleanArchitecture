@@ -9,8 +9,8 @@ namespace TopshelfCleanArchitecture.Application.Job.Base
     [DisallowConcurrentExecution]
     public abstract class JobBase : IJob
     {
-        private readonly string _jobId;
-        private readonly ILoggerFile _loggerFile;
+        protected readonly ILoggerFile _loggerFile;
+        protected readonly string _jobId;
         private Stopwatch _stopwatch;
 
         public JobBase(string jobId, ILoggerFile loggerFile)

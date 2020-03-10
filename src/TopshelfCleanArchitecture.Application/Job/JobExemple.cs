@@ -1,9 +1,11 @@
 ﻿using MediatR;
+using Newtonsoft.Json;
 using Quartz;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TopshelfCleanArchitecture.Application.Interfaces;
 using TopshelfCleanArchitecture.Application.Job.Base;
+using TopshelfCleanArchitecture.Application.Resources;
 using TopshelfCleanArchitecture.Application.UseCase.Base;
 using TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts;
 
@@ -21,9 +23,13 @@ namespace TopshelfCleanArchitecture.Application.Job
 
         public async override Task ExecutarAsync()
         {
-            ResponseBase<List<ReturnListOfProdutsResponse>> testMediator1 = await _mediator.Send(new ReturnListOfProdutsRequest() { Id = 1 });
+            //The result is encapsulated on a Class (ResponseBase) that returns the result from the usecase or errors from de validation
+            ResponseBase<List<ReturnListOfProdutsResponse>> resultWithoutError = await _mediator.Send(new ReturnListOfProdutsRequest() { Id = 1 });
+             _loggerFile.Information(string.Format(Messages.OkResultUsecase, JsonConvert.SerializeObject(resultWithoutError)));
 
-            var testMediator2 = await _mediator.Send(new ReturnListOfProdutsRequest() { Id = 1 });
+            ResponseBase<List<ReturnListOfProdutsResponse>> resultWithError = await _mediator.Send(new ReturnListOfProdutsRequest() { Id = 0 });
+            _loggerFile.Information(string.Format(Messages.FailResultUsecase, JsonConvert.SerializeObject(resultWithError)));
+
         }
     }
 }

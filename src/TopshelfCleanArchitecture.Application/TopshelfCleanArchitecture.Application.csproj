@@ -8,11 +8,27 @@
     <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="FluentValidation" Version="8.6.2" />
     <PackageReference Include="MediatR.Extensions.Autofac.DependencyInjection" Version="5.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Quartz" Version="3.0.7" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TopshelfCleanArchitecture.Domain\TopshelfCleanArchitecture.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Messages.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>
