@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TopshelfCleanArchitecture.Infra.Migrations": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

@@ -5,15 +5,17 @@ VisualStudioVersion = 16.0.29820.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopshelfCleanArchitecture", "src\TopshelfCleanArchitecture\TopshelfCleanArchitecture.csproj", "{DDB66B6C-AAF0-4553-A37E-A7876958ACD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopshelfCleanArchitecture.Infra.CrossCutting", "src\TopshelfCleanArchitecture.Infra.CrossCutting\TopshelfCleanArchitecture.Infra.CrossCutting.csproj", "{E8FA0B25-3879-4AAC-910F-3B5BD1CF8451}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopshelfCleanArchitecture.Infra.CrossCutting", "src\TopshelfCleanArchitecture.Infra.CrossCutting\TopshelfCleanArchitecture.Infra.CrossCutting.csproj", "{E8FA0B25-3879-4AAC-910F-3B5BD1CF8451}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopshelfCleanArchitecture.Application", "src\TopshelfCleanArchitecture.Application\TopshelfCleanArchitecture.Application.csproj", "{380B6CD1-BA0F-4DF5-B1D5-0629ABA01D67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopshelfCleanArchitecture.Application", "src\TopshelfCleanArchitecture.Application\TopshelfCleanArchitecture.Application.csproj", "{380B6CD1-BA0F-4DF5-B1D5-0629ABA01D67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopshelfCleanArchitecture.Infra.Data", "src\TopshelfCleanArchitecture.Infra.Data\TopshelfCleanArchitecture.Infra.Data.csproj", "{788484A6-F712-40BD-B109-19A4A4C0B9F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopshelfCleanArchitecture.Infra.Data", "src\TopshelfCleanArchitecture.Infra.Data\TopshelfCleanArchitecture.Infra.Data.csproj", "{788484A6-F712-40BD-B109-19A4A4C0B9F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopshelfCleanArchitecture.Infra.Resiliency", "src\TopshelfCleanArchitecture.Infra.Resiliency\TopshelfCleanArchitecture.Infra.Resiliency.csproj", "{EFFC0F9E-AC1D-4B35-A4D6-BCC621F2B970}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopshelfCleanArchitecture.Infra.Resiliency", "src\TopshelfCleanArchitecture.Infra.Resiliency\TopshelfCleanArchitecture.Infra.Resiliency.csproj", "{EFFC0F9E-AC1D-4B35-A4D6-BCC621F2B970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopshelfCleanArchitecture.Domain", "src\TopshelfCleanArchitecture.Domain\TopshelfCleanArchitecture.Domain.csproj", "{0D8ADC21-1CF5-425E-A3A8-DC37A1959754}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopshelfCleanArchitecture.Domain", "src\TopshelfCleanArchitecture.Domain\TopshelfCleanArchitecture.Domain.csproj", "{0D8ADC21-1CF5-425E-A3A8-DC37A1959754}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopshelfCleanArchitecture.Infra.Migrations", "src\TopshelfCleanArchitecture.Infra.Migrations\TopshelfCleanArchitecture.Infra.Migrations.csproj", "{E51AD33C-5E9B-4CDD-9873-4EEEC3709DF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{0D8ADC21-1CF5-425E-A3A8-DC37A1959754}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D8ADC21-1CF5-425E-A3A8-DC37A1959754}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D8ADC21-1CF5-425E-A3A8-DC37A1959754}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E51AD33C-5E9B-4CDD-9873-4EEEC3709DF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E51AD33C-5E9B-4CDD-9873-4EEEC3709DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E51AD33C-5E9B-4CDD-9873-4EEEC3709DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E51AD33C-5E9B-4CDD-9873-4EEEC3709DF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
