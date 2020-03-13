@@ -19,6 +19,7 @@ namespace TopshelfCleanArchitecture.Infra.Migrations
             InsertProduct("Bread", 1.29);
             InsertProduct("Cheese", 2.1);
             InsertProduct("Waffles", 2.41);
+
         }
 
         void InsertProduct(string name, double price)
