@@ -13,12 +13,17 @@ namespace TopshelfCleanArchitecture.Infra.Migrations
                 .WithColumn("Name").AsString(100)
                 .WithColumn("Price").AsFloat();
 
-            Insert.IntoTable("Product").Row(new { Name = "Potatoes", Price = 3.6 });
-            Insert.IntoTable("Product").Row(new { Name = "Fish", Price = 4.49 });
-            Insert.IntoTable("Product").Row(new { Name = "Milk", Price = 0.79 });
-            Insert.IntoTable("Product").Row(new { Name = "Bread", Price = 1.29 });
-            Insert.IntoTable("Product").Row(new { Name = "Cheese", Price = 2.1 });
-            Insert.IntoTable("Product").Row(new { Name = "Waffles", Price = 2.41 });
+            InsertProduct("Potatoes", 3.6);
+            InsertProduct("Fish", 4.49);
+            InsertProduct("Milk", 0.79);
+            InsertProduct("Bread", 1.29);
+            InsertProduct("Cheese", 2.1);
+            InsertProduct("Waffles", 2.41);
+        }
+
+        void InsertProduct(string name, double price)
+        {
+            Insert.IntoTable("Product").Row(new { Name = name, Price = (float)price });
         }
 
         public override void Down()

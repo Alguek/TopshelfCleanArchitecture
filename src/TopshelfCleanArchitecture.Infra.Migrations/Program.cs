@@ -45,12 +45,32 @@ namespace TopshelfCleanArchitecture.Infra.Migrations
         {
             return new ServiceCollection()
                 .AddFluentMigratorCore()
-                .ConfigureRunner(rb => rb
-                    .AddSqlServer2016()
-                    .WithGlobalConnectionString(_configurationRoot.GetConnectionString("DefaultConnection"))
-                    .ScanIn(typeof(Baseline).Assembly).For.Migrations())
+                .ConfigureRunner(rb => ConfigureDatabaseType(rb))
                 .AddLogging(lb => lb.AddFluentMigratorConsole())
                 .BuildServiceProvider(false);
+        }
+
+        static void ConfigureDatabaseType(IMigrationRunnerBuilder config)
+        {
+            var databaseType = _configurationRoot.GetSection("ConnectionStrings").GetSection("DatabaseType").Value;
+
+            config
+                .WithGlobalConnectionString(_configurationRoot.GetConnectionString("DefaultConnection"))
+                .ScanIn(typeof(Baseline).Assembly).For.Migrations();
+
+            switch (databaseType)
+            {
+                case "mssql_12":
+                    config.AddSqlServer();
+                    break;
+                case "oracle9":
+                case "oracle10":
+                    config.AddOracle();
+                    break;
+                default:
+                    break;
+            }
+
         }
 
         /// <summary>
