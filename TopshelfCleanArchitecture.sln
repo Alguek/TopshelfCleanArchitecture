@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopshelfCleanArchitecture.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TopshelfCleanArchitecture.Infra.Migrations", "src\TopshelfCleanArchitecture.Infra.Migrations\TopshelfCleanArchitecture.Infra.Migrations.csproj", "{E51AD33C-5E9B-4CDD-9873-4EEEC3709DF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopshelfCleanArchitecture.Client", "src\TopshelfCleanArchitecture.Client\TopshelfCleanArchitecture.Client.csproj", "{E741C3FF-B050-4815-BB63-368D03AE1AB0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{E51AD33C-5E9B-4CDD-9873-4EEEC3709DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E51AD33C-5E9B-4CDD-9873-4EEEC3709DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E51AD33C-5E9B-4CDD-9873-4EEEC3709DF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E741C3FF-B050-4815-BB63-368D03AE1AB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E741C3FF-B050-4815-BB63-368D03AE1AB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E741C3FF-B050-4815-BB63-368D03AE1AB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E741C3FF-B050-4815-BB63-368D03AE1AB0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,7 +8,7 @@ using TopshelfCleanArchitecture.Application.UseCase.Base;
 
 namespace TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts
 {
-    public class ReturnListOfProdutsUseCase : IRequestHandler<ReturnListOfProdutsRequest, ResponseBase<List<ReturnListOfProdutsResponse>>>
+    public class ReturnListOfProdutsUseCase : IRequestHandler<ReturnListOfProdutsRequest, ResultBase<List<ReturnListOfProdutsResponse>>>
     {
         private readonly IProductRepository _productRepository;
         private readonly IMapper _mapper;
@@ -19,12 +19,12 @@ namespace TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts
             _mapper = mapper;
         }
 
-        public async Task<ResponseBase<List<ReturnListOfProdutsResponse>>> Handle(ReturnListOfProdutsRequest request, CancellationToken cancellationToken)
+        public async Task<ResultBase<List<ReturnListOfProdutsResponse>>> Handle(ReturnListOfProdutsRequest request, CancellationToken cancellationToken)
         {
             var listOfProduts = await _productRepository.ObterLista();
             var response = _mapper.Map<List<ReturnListOfProdutsResponse>>(listOfProduts);
 
-            var result = new ResponseBase<List<ReturnListOfProdutsResponse>>(response);
+            var result = new ResultBase<List<ReturnListOfProdutsResponse>>(response);
             return result;
         }
     }

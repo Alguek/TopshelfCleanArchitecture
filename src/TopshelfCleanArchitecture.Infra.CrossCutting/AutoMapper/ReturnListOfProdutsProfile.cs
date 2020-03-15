@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using System.Collections.Generic;
 using TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts;
 using TopshelfCleanArchitecture.Domain.Entities;
 

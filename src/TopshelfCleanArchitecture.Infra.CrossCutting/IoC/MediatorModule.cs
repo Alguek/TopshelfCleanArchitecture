@@ -3,7 +3,6 @@ using MediatR;
 using MediatR.Extensions.Autofac.DependencyInjection;
 using System.Reflection;
 using TopshelfCleanArchitecture.Application.UseCase.Base;
-using TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts;
 using TopshelfCleanArchitecture.Infra.CrossCutting.MediatR;
 
 namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
@@ -12,13 +11,13 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.IoC
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.AddMediatR(typeof(ResponseBase).Assembly);
+            builder.AddMediatR(typeof(ResultBase).Assembly);
 
             builder.RegisterAssemblyTypes(typeof(IMediator).GetTypeInfo().Assembly)
                 .AsImplementedInterfaces();
 
             builder.RegisterAssemblyTypes(
-                                  typeof(ResponseBase).GetTypeInfo().Assembly).
+                                  typeof(ResultBase).GetTypeInfo().Assembly).
                                        AsClosedTypesOf(typeof(IRequestHandler<,>));
 
             builder.RegisterGeneric(typeof(LoggingBehavior<,>)).

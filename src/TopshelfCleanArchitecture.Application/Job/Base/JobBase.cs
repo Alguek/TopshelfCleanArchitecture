@@ -40,7 +40,7 @@ namespace TopshelfCleanArchitecture.Application.Job.Base
         protected void LogStart()
         {
             _stopwatch = new Stopwatch();
-            _stopwatch.Start(); 
+            _stopwatch.Start();
             _loggerFile.Information("[INICIO] '{0}'", _jobId);
         }
 

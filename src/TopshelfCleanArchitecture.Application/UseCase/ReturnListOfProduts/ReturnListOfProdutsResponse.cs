@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using TopshelfCleanArchitecture.Application.UseCase.Base;
-
-namespace TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts
+﻿namespace TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts
 {
     public class ReturnListOfProdutsResponse
     {

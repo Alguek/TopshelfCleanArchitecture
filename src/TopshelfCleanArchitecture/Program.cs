@@ -1,5 +1,7 @@
 ﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 using System;
 using System.IO;
@@ -27,8 +29,8 @@ namespace TopshelfCleanArchitecture
 
             HostFactory.Run(c =>
             {
-                c.SetServiceName(": TopshelfCleanArchitecture");
-                c.SetDisplayName(": TopshelfCleanArchitecture");
+                c.SetServiceName("TopshelfCleanArchitecture");
+                c.SetDisplayName("TopshelfCleanArchitecture");
                 c.SetDescription(": A exemple of a service using Topshelf with Clean Architecture");
 
                 c.UseAutofacContainer(ConfigureContainer());
@@ -43,6 +45,13 @@ namespace TopshelfCleanArchitecture
 
         }
 
+        private static IServiceCollection ConfigureServices()
+        {
+            IServiceCollection services = new ServiceCollection();
+            services.RegisterHttpClient("https://jsonplaceholder.typicode.com/");
+            return services;
+        }
+
         public static IContainer ConfigureContainer()
         {
             var builder = new ContainerBuilder();
@@ -52,6 +61,7 @@ namespace TopshelfCleanArchitecture
             builder.RegisterModule(new ApplicationModule());
             builder.RegisterModule(new AutoMapperModule());
             builder.RegisterModule(new MediatorModule());
+            builder.Populate(ConfigureServices());
 
             ConfigureSerilog(builder);
 

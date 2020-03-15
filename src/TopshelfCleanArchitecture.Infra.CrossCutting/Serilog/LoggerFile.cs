@@ -28,12 +28,12 @@ namespace TopshelfCleanArchitecture.Infra.CrossCutting.Serilog
 
         public void Debug(string messageTemplate)
         {
-           _logger.Debug(messageTemplate);
+            _logger.Debug(messageTemplate);
         }
 
         public void Debug<T>(string messageTemplate, T propertyValue)
         {
-           _logger.Debug(messageTemplate, propertyValue);
+            _logger.Debug(messageTemplate, propertyValue);
         }
 
         public void Debug<T0, T1>(string messageTemplate, T0 propertyValue0, T1 propertyValue1)
