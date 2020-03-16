@@ -23,7 +23,6 @@ namespace TopshelfCleanArchitecture.Application.UseCase.ReturnListOfProduts
         {
             var listOfProduts = await _productRepository.ObterLista();
             var response = _mapper.Map<List<ReturnListOfProdutsResponse>>(listOfProduts);
-
             var result = new ResultBase<List<ReturnListOfProdutsResponse>>(response);
             return result;
         }
